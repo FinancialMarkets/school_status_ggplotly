@@ -20,6 +20,8 @@ school_closing_data$CountryName <- factor(school_closing_data$CountryName,levels
 
 school_closing_data <- school_closing_data[school_closing_data$Date > "2020-02-14", ]
 
+school_closing_data <- school_closing_data[school_closing_data$CountryName != "France",]
+
 p <- ggplot(school_closing_data, aes(x = Date, y = CountryName, fill = `School Status`)) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
     geom_tile() +
